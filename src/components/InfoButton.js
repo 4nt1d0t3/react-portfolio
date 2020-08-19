@@ -1,24 +1,12 @@
-import React from 'react'
-import { ButtonBase, Typography } from '@material-ui/core'
-import { makeStyles } from '@material-ui/core/styles'
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import anttisocial from '../images/anttisocial.jpg'
-import canada from '../images/canada.jpg'
+import antibug from '../images/antibug.png'
+import { AutoRotatingCarousel } from 'material-auto-rotating-carousel';
+import ProjectSlide from './ProjectSlide'
 //MUI
-
-
-
-const images = [
-    {
-        url: `url(${anttisocial})`,
-        title: 'Projects',
-        width: '30%'
-    },
-    {
-        url: `url(${canada})`,
-        title: 'About Me',
-        width: '30%'
-    },
-]
+import { Button } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(theme => {
     return {
@@ -26,99 +14,93 @@ const useStyles = makeStyles(theme => {
             display: 'flex',
             minWidth: 300,
             width: '100%',
-            justifyContent: 'space-evenly',
-            marginTop: 35
+            justifyContent: 'center',
+            marginTop: 35,
         },
-        image: {
+        button: {
             position: 'relative',
-            height: 200,
+            padding: '10px 50px',
+            margin: '0 35px 0 35px',
+            border: '3px solid white',
+            borderRadius: 0,
+            color: 'white',
+            transition: theme.transitions.create(['background-color', 'color']),
             [theme.breakpoints.down('xs')]: {
-                width: '100% !important', // Overrides inline-style
-                height: 100,
+                width: '80% !important', // Overrides inline-style
+                height: 60,
+                margin: 0
             },
             '&:hover, &$focusVisible': {
                 zIndex: 1,
-                '& $imageBackdrop': {
-                    opacity: 0.15,
-                },
-                '& $imageMarked': {
-                    opacity: 0,
-                },
-                '& $imageTitle': {
-                    border: '4px solid currentColor',
+                '& ': {
+                    backgroundColor: 'white',
+                    color: 'black'
                 },
             },
         },
-        imageSrc: {
-            position: 'absolute',
-            left: 0,
-            right: 0,
-            top: 0,
-            bottom: 0,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center 40%',
-        },
-        imageBackdrop: {
-            position: 'absolute',
-            left: 0,
-            right: 0,
-            top: 0,
-            bottom: 0,
-            backgroundColor: theme.palette.common.white,
-            opacity: 0.4,
-            transition: theme.transitions.create('opacity'),
-        },
-        imageTitle: {
-            position: 'relative',
-            color: 'black',
-            padding: `${theme.spacing(2)}px ${theme.spacing(4)}px ${theme.spacing(1) + 6}px`,
-        },
-        imageButton: {
-            position: 'absolute',
-            left: 0,
-            right: 0,
-            top: 0,
-            bottom: 0,
+        link: {
+            textDecoration: 'none',
             display: 'flex',
-            alignItems: 'center',
             justifyContent: 'center',
-            color: theme.palette.common.white,
+            [theme.breakpoints.down('xs')]: {
+                width: '80% !important', // Overrides inline-style
+                height: 60,
+            },
         },
         focusVisible: {},
-        imageMarked: {
-            height: 3,
-            width: 18,
-            backgroundColor: theme.palette.common.white,
+        getInTouch: {
             position: 'absolute',
-            bottom: -2,
-            left: 'calc(50% - 9px)',
-            transition: theme.transitions.create('opacity'),
+            bottom: '-10vh',
+            textDecoration: 'none',
+            display: 'flex',
+            justifyContent: 'center',
+            [theme.breakpoints.down('xs')]: {
+                width: '80% !important', // Overrides inline-style
+                height: 60,
+            },
         },
     }
 })
 
 function InfoButton() {
     const classes = useStyles()
+    const [open, setOpen] = useState(false)
     return (
         <div className={classes.root}>
-            {images.map(image => (
-                <ButtonBase
-                    focusRipple
-                    key={image.title}
-                    focusVisibleClassName={classes.focusVisible}
-                    style={{ width: image.width }}
-                    className={classes.image}
-                >
-                    <span className={classes.imageSrc} style={{ backgroundImage: image.url }} />
-                    <span className={classes.imageBackdrop} />
-                    <span className={classes.imageButton}>
-                        <Typography component='span' variant='subtitle1' className={classes.imageTitle}>
-                            {image.title}
-                            <span className={classes.imageMarked} />
-                        </Typography>
-                    </span>
-                </ButtonBase>
-            ))}
+            <Button onClick={() => setOpen(true)} className={classes.button}>Projects</Button>
+            <AutoRotatingCarousel
+                autoplay={false}
+                open={open}
+                onClose={() => setOpen(false)}
+                style={{ position: 'absolute', overflow: 'hidden' }}
+            >
+                <ProjectSlide
+                    media={<img src={anttisocial} />}
+                    mediaBackgroundStyle={{ backgroundColor: 'cyan' }}
+                    style={{ backgroundColor: 'green' }}
+                    title='AnttiSocial'
+                    subtitle='A social media site built using Firebase, React and Redux. This is my first ever React and Redux project and I
+                    learned a lot. To learn more about my experiences during this project, please check out the ReadMe on GitHub.'
+                    gitHub='https://github.com/4nt1d0t3/anttisocial'
+                    url='https://anttisocial-763c6.web.app/'
+                />
+                <ProjectSlide
+                    media={<img src={antibug} />}
+                    mediaBackgroundStyle={{ backgroundColor: 'orange' }}
+                    style={{ backgroundColor: 'navy' }}
+                    title='AntiBug'
+                    subtitle='First ever project I created by myself. This bug tracker is built using Node.JS, Express, MySQL and styled with
+                    basic CSS and Bootstrap. Check out the ReadMe on Github for more info and give the website a try!'
+                    gitHub='https://github.com/4nt1d0t3/antibug'
+                    url='https://sheltered-river-68577.herokuapp.com/'
+                />
+            </AutoRotatingCarousel>
+            <Link to='/about' className={classes.link}>
+                <Button className={classes.button}>About Me</Button>
+            </Link>
+            <Link to='/details' className={classes.getInTouch}>
+                <Button className={classes.button}>Get in touch</Button>
+            </Link>
         </div>
     )
 }

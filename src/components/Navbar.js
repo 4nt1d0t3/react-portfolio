@@ -11,8 +11,6 @@ function Navbar() {
 
     return (
         <div className={classes.navContainer}>
-            {/* <Link className={classes.navLink} to='/projects' >PROJECTS</Link>
-            <Link className={classes.navLink} to='/abou'>ABOUT</Link> */}
             <Link className={classes.navLink} to='/details'>CONTACT</Link>
         </div >
     )

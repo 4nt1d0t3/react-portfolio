@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import InfoButton from '../components/InfoButton.js'
 //MUI
 import { Typography } from '@material-ui/core'
@@ -11,10 +11,14 @@ export default function Home() {
     const useStyles = makeStyles(HomeStyles);
     const classes = useStyles();
     return (
-        <div style={{position: "relative", top: '12vh'}}>
-            <Typography className={classes.headline} variant='h3' align='center'>Hi</Typography>
-            <Typography className={classes.headline} variant='h3' align='center'>My name is Antti</Typography>
-            <Typography className={classes.headline} variant='h3' align='center'>I'm a software developer</Typography>
+        <div style={{ position: "relative", top: '15vh' }}>
+            <Typography className={classes.headline} variant='h3' align='center'>
+                Hi!
+                <br />
+                My name is Antti
+                <br />
+                I'm a Software Developer
+            </Typography>
             <InfoButton />
         </div>
     )
