@@ -4,8 +4,9 @@ import anttisocial from '../images/anttisocial.jpg'
 import antibug from '../images/antibug.png'
 import { AutoRotatingCarousel } from 'material-auto-rotating-carousel';
 import ProjectSlide from './ProjectSlide'
+import About from './About'
 //MUI
-import { Button } from '@material-ui/core'
+import { Button, Modal } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(theme => {
@@ -65,6 +66,7 @@ const useStyles = makeStyles(theme => {
 function InfoButton() {
     const classes = useStyles()
     const [open, setOpen] = useState(false)
+    const [checked, setChecked] = useState(false)
     return (
         <div className={classes.root}>
             <Button onClick={() => setOpen(true)} className={classes.button}>Projects</Button>
@@ -76,8 +78,8 @@ function InfoButton() {
             >
                 <ProjectSlide
                     media={<img src={anttisocial} />}
-                    mediaBackgroundStyle={{ backgroundColor: 'cyan' }}
-                    style={{ backgroundColor: 'green' }}
+                    // mediaBackgroundStyle={{ backgroundColor: 'transparent' }}
+                    // style={{ backgroundColor: 'green' }}
                     title='AnttiSocial'
                     subtitle='A social media site built using Firebase, React and Redux. This is my first ever React and Redux project and I
                     learned a lot. To learn more about my experiences during this project, please check out the ReadMe on GitHub.'
@@ -86,8 +88,8 @@ function InfoButton() {
                 />
                 <ProjectSlide
                     media={<img src={antibug} />}
-                    mediaBackgroundStyle={{ backgroundColor: 'orange' }}
-                    style={{ backgroundColor: 'navy' }}
+                    mediaBackgroundStyle={{ backgroundColor: 'transparent' }}
+                    style={{ backgroundColor: 'transparent' }}
                     title='AntiBug'
                     subtitle='First ever project I created by myself. This bug tracker is built using Node.JS, Express, MySQL and styled with
                     basic CSS and Bootstrap. Check out the ReadMe on Github for more info and give the website a try!'
@@ -95,9 +97,15 @@ function InfoButton() {
                     url='https://sheltered-river-68577.herokuapp.com/'
                 />
             </AutoRotatingCarousel>
-            <Link to='/about' className={classes.link}>
-                <Button className={classes.button}>About Me</Button>
-            </Link>
+            <Button className={classes.button} onClick={() => setChecked(true)}>About Me</Button>
+            <Modal
+                open={checked}
+                onClose={() => setChecked(false)}
+                aria-labelledby="simple-modal-title"
+                aria-describedby="simple-modal-description"
+            >
+                <About checked={checked} />
+            </Modal>
             <Link to='/details' className={classes.getInTouch}>
                 <Button className={classes.button}>Get in touch</Button>
             </Link>

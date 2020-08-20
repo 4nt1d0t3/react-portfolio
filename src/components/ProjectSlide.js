@@ -12,7 +12,8 @@ import { IconButton } from '@material-ui/core';
 
 const useStyles = makeStyles({
     root: {
-        backgroundColor: blue[500],
+        backgroundColor: 'transparent',
+        // blue[500],
         height: '100%',
     },
     rootMobileLandscape: {
@@ -36,7 +37,8 @@ const useStyles = makeStyles({
     },
     mediaMobileLandscape: {},
     mediaBackground: {
-        backgroundColor: blue[700],
+        backgroundColor: 'transparent',
+        // blue[700],
         height: 'calc(100% - 216px)',
         textAlign: 'center'
     },
@@ -49,8 +51,9 @@ const useStyles = makeStyles({
         alignSelf: 'stretch'
     },
     text: {
+        backgroundColor: blue[500],
         textAlign: 'center',
-        maxWidth: '80%',
+        maxWidth: '100%',
         margin: '0 auto',
         marginTop: 20
     },
