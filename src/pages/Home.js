@@ -1,5 +1,5 @@
 import React from 'react'
-import InfoButton from '../components/InfoButton.js'
+import ButtonCluster from '../components/ButtonCluster.js'
 //MUI
 import { Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
@@ -19,7 +19,7 @@ export default function Home() {
                 <br />
                 I'm a Software Developer
             </Typography>
-            <InfoButton />
+            <ButtonCluster />
         </div>
     )
 }

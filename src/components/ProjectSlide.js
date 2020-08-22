@@ -1,97 +1,20 @@
 import React from 'react'
-import GitHubIcon from '@material-ui/icons/GitHub';
-import Typography from '@material-ui/core/Typography'
-import blue from '@material-ui/core/colors/blue'
+//MUI
 import { makeStyles } from '@material-ui/core/styles'
-import classNames from 'classnames'
-import Tooltip from '@material-ui/core/Tooltip';
+import { IconButton, Tooltip, Typography } from '@material-ui/core';
+//Icons
+import GitHubIcon from '@material-ui/icons/GitHub';
 import LanguageIcon from '@material-ui/icons/Language';
-import { IconButton } from '@material-ui/core';
+import { SlideStyles } from '../util/muiStyles';
+//Util
+import classNames from 'classnames'
 
-
-
-const useStyles = makeStyles({
-    root: {
-        backgroundColor: 'transparent',
-        // blue[500],
-        height: '100%',
-    },
-    rootMobileLandscape: {
-        width: '100%',
-        display: 'flex',
-        flexDirection: 'row'
-    },
-    media: {
-        height: '100%',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        '& > *': {
-            maxHeight: '100%'
-        }
-    },
-    mediaMobile: {
-        position: 'relative',
-        top: '50%',
-        transform: 'translateY(-50%)'
-    },
-    mediaMobileLandscape: {},
-    mediaBackground: {
-        backgroundColor: 'transparent',
-        // blue[700],
-        height: 'calc(100% - 216px)',
-        textAlign: 'center'
-    },
-    mediaBackgroundMobile: {
-        height: 'calc(100% - 241px)'
-    },
-    mediaBackgroundMobileLandscape: {
-        height: '100%',
-        flex: '1 1',
-        alignSelf: 'stretch'
-    },
-    text: {
-        backgroundColor: blue[500],
-        textAlign: 'center',
-        maxWidth: '100%',
-        margin: '0 auto',
-        marginTop: 20
-    },
-    textMobile: {
-        paddingTop: 30,
-        '& $title': {
-            marginBottom: 8
-        }
-    },
-    textMobileLandscape: {
-        minWidth: 300,
-        maxWidth: 'calc(50% - 48px)',
-        padding: '24px 24px 128px',
-        flex: '0 1',
-        alignSelf: 'center',
-        textAlign: 'left',
-        margin: 0
-    },
-    title: {
-        fontSize: '24px',
-        fontWeight: 700,
-        lineHeight: '32px',
-        marginBottom: 12,
-        textOverflow: 'ellipsis',
-        whiteSpace: 'nowrap',
-        overflow: 'hidden',
-        color: '#fff'
-    },
-    subtitle: {
-        fontSize: '15px',
-        fontWeight: 400,
-        lineHeight: '18px',
-        margin: 0,
-        color: '#fff'
-    }
-})
+const useStyles = makeStyles(SlideStyles)
 
 function ProjectSlide(props) {
+    //MUI
+    const classes = useStyles()
+    //Props
     const {
         title,
         subtitle,
@@ -102,7 +25,6 @@ function ProjectSlide(props) {
         mobile,
         landscape
     } = props
-    const classes = useStyles()
 
     const mobileLandscape = mobile && landscape
 
@@ -139,27 +61,24 @@ function ProjectSlide(props) {
                 <Typography className={classes.subtitle}>
                     {subtitle}
                 </Typography>
-                <div>
-                    <Tooltip title='GitHub'
-                        onClick={(e) => {
-                            e.preventDefault();
-                            window.open(gitHub, "_blank") || window.location.replace(gitHub);
-                        }}
-                    >
-                        <IconButton>
+                <div className={classes.buttonLinks}>
+                    <IconButton onClick={(e) => {
+                        e.preventDefault();
+                        window.open(gitHub, "_blank") || window.location.replace(gitHub);
+                    }}>
+                        <Tooltip title='GitHub'>
+
                             <GitHubIcon />
-                        </IconButton>
-                    </Tooltip>
-                    <Tooltip title='Website'
-                        onClick={(e) => {
-                            e.preventDefault();
-                            window.open(url, "_blank") || window.location.replace(url);
-                        }}
-                    >
-                        <IconButton>
+                        </Tooltip>
+                    </IconButton>
+                    <IconButton onClick={(e) => {
+                        e.preventDefault();
+                        window.open(url, "_blank") || window.location.replace(url);
+                    }}>
+                        <Tooltip title='Website'>
                             <LanguageIcon />
-                        </IconButton>
-                    </Tooltip>
+                        </Tooltip>
+                    </IconButton>
                 </div>
             </div>
         </div>
