@@ -59,7 +59,7 @@ function About({ about }) {
                     <Tooltip title='GitHub' placement='top'
                         onClick={(e) => {
                             e.preventDefault();
-                            window.open('https://github.com/4nt1d0t3', "_blank") || window.location.replace('https://github.com/4nt1d0t3');
+                            window.open('https://github.com/antti-hyppola', "_blank") || window.location.replace('https://github.com/antti-hyppola');
                         }}
                     >
                         <IconButton>

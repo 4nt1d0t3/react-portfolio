@@ -32,7 +32,7 @@ function ButtonCluster() {
                     title='AnttiSocial'
                     subtitle='A social media site built using Firebase, React and Redux. This is my first ever React and Redux project and I
                     learned a lot. To learn more about my experiences during this project, please check out the ReadMe on GitHub.'
-                    gitHub='https://github.com/4nt1d0t3/anttisocial'
+                    gitHub='https://github.com/antti-hyppola/anttisocial'
                     url='https://anttisocial-763c6.web.app/'
                 />
                 <ProjectSlide
@@ -40,7 +40,7 @@ function ButtonCluster() {
                     title='AntiBug'
                     subtitle='First ever project I created by myself. This bug tracker is built using Node.JS, Express, MySQL and styled with
                     basic CSS and Bootstrap. Check out the ReadMe on Github for more info and give the website a try!'
-                    gitHub='https://github.com/4nt1d0t3/antibug'
+                    gitHub='https://github.com/antti-hyppola/antibug'
                     url='https://sheltered-river-68577.herokuapp.com/'
                 />
             </AutoRotatingCarousel>
