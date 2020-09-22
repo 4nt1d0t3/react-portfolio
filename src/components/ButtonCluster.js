@@ -47,7 +47,8 @@ function ButtonCluster() {
                 <ProjectSlide
                     media={<img src={quiz} alt='TypeScript Quiz Game' />}
                     title='Quiz Game'
-                    subtitle='A simple quiz game I built to practise TypeScript and React. Questions come from an API called "Open Trivia DB'
+                    subtitle='A simple quiz game I built to practise TypeScript and React. Questions come from an API called "Open Trivia DB".
+                    This was a fun little project to get me more comfortable with TS before I take on a larger project.'
                     gitHub='https://github.com/antti-hyppola/quiz-game'
                     url='https://antti-hyppola.github.io/quiz-game/'
                 />
