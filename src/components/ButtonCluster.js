@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 //Images
 import anttisocial from '../images/anttisocial.jpg'
 import antibug from '../images/antibug.png'
+import quiz from '../images/quiz.png'
 //Components
 import ProjectSlide from './ProjectSlide'
 import GetInTouch from './GetInTouch'
@@ -42,6 +43,13 @@ function ButtonCluster() {
                     basic CSS and Bootstrap. Check out the ReadMe on Github for more info and give the website a try!'
                     gitHub='https://github.com/antti-hyppola/antibug'
                     url='https://sheltered-river-68577.herokuapp.com/'
+                />
+                <ProjectSlide
+                    media={<img src={quiz} alt='TypeScript Quiz Game' />}
+                    title='Quiz Game'
+                    subtitle='A simple quiz game I built to practise TypeScript and React. Questions come from an API called "Open Trivia DB'
+                    gitHub='https://github.com/antti-hyppola/quiz-game'
+                    url='https://antti-hyppola.github.io/quiz-game/'
                 />
             </AutoRotatingCarousel>
             <Button className={classes.button} onClick={() => setAbout(true)}>About Me</Button>
