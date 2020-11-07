@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import anttisocial from '../images/anttisocial.jpg'
 import antibug from '../images/antibug.png'
 import quiz from '../images/quiz.png'
+import moviedb from '../images/moviedb.png'
 //Components
 import ProjectSlide from './ProjectSlide'
 import GetInTouch from './GetInTouch'
@@ -35,6 +36,13 @@ function ButtonCluster() {
                     learned a lot. To learn more about my experiences during this project, please check out the ReadMe on GitHub.'
                     gitHub='https://github.com/antti-hyppola/anttisocial'
                     url='https://anttisocial-763c6.web.app/'
+                />
+                <ProjectSlide
+                    media={<img src={moviedb} alt='MovieDB web app' />}
+                    title='MovieDB'
+                    subtitle='As the title hints, this is a movie database site I built using TypeScript, React, Redux, Grommet and TMdb API. Take a look at the source code on GitHub.'
+                    gitHub='https://github.com/antti-hyppola/movieDB/'
+                    url='https://epic-curie-249538.netlify.app/'
                 />
                 <ProjectSlide
                     media={<img src={antibug} alt='AntiBug web app' />}
